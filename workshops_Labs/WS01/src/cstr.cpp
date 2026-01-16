@@ -1,5 +1,28 @@
 //source file
 // cstr.cpp
+/* Citation and Sources...
+-----------------------------------------------------------
+OOP244 Workshop #1: cstr module SOURCE FILE
+Module: cstr
+Filename: cstr.cpp
+-----------------------------------------------------------
+Author: Nikola Stojanovic
+Student number: 027369149
+Email: nstojanovic@myseneca.ca
+Subject: BTP200NAA
+-----------------------------------------------------------
+Revision History
+------- --------- ------------------------------------------
+Version Date        Reason
+V0.1    2025/01/13  Created file included header file,cstr.h cstr.h created namespace seneca
+V0.2    2025/01/13  copyed string functions sigurtures from git to be used here, wrote out the functions complete
+V0.3    2025/01/14  Complied the file, Tested them got right output
+V0.4    2025/01/16  Ready for submission
+-----------------------------------------------------------
+I have done all the coding by myself and only copied the code 
+that my professor provided to complete my work for function whatever.
+-----------------------------------------------------------
+*/
 #include "cstr.h"
 #include <cstddef>
 
