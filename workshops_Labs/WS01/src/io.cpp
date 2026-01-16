@@ -53,32 +53,24 @@ namespace seneca{
         cout << setfill(' ');
     };
 
-    // void print (const PhoneRec& rec, size_t& row, const char* filter){
-    //     bool matches = false;
-    //      if (!filter) {
-    //         matches = true;
-    //      } else {
-    //         if (strstr(rec.name, filter) || strstr(rec.lastname, filter)){
-    //             matches = true;
-    //         }
-    //      }
+    void print (const PhoneRec& rec, size_t& row, const char* filter){
+        bool matches = false;
+         if (!filter) {
+            matches = true;
+         } else {
+            if (strstr(rec.name, filter) || strstr(rec.lastname, filter)){
+                matches = true;
+            }
+         }
 
-    //      if (matches){
-    //         cout << row << ": " << rec.name << " " << rec.lastname << " ";
-    //         print (rec.number);
-    //         cout << endl;
-    //         row++;
-    //      }
-    // }
-    void print(const PhoneRec& rec, size_t& row, const char* filter) {
-    if (!filter || strstr(rec.name, filter) || strstr(rec.lastname, filter)) {
-        cout << row << ": " << rec.name << " " << rec.lastname << " ";
-        print(rec.number);
-        cout << endl;
-        row++;
+         if (matches){
+            cout << row << ": " << rec.name << " " << rec.lastname << " ";
+            print (rec.number);
+            cout << endl;
+            row++;
+         }
     }
-}
-
+    
     void print (PhoneRec* recPtrs[], size_t size, const char* filter) {
         size_t row = 1;
         for (size_t i =0 ; i< size; i++){
