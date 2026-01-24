@@ -87,11 +87,12 @@ namespace seneca {
 
 void freemem(Samples*& s) {
     if (s == nullptr) return;
-
+    // deleteing, deallocating fields in Struct and Struct it self
     delete[] s->m_title;
     delete[] s->m_data;
     delete s;
 
+    // sets the pointer s back to null ptr
     s = nullptr;
 }
 
