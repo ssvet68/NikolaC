@@ -73,13 +73,5 @@ void freemem(Samples*& s) {
 
     s = nullptr;
 }
-    // void append (int& data, int size, const int appendedData[], int dataSize){
-
-    // };
-
-    // void freemem(Samples*& s){
-
-    // };
-
 
 } // namespace seneca
