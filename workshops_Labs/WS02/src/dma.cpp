@@ -62,29 +62,6 @@ namespace seneca {
     delete[] data;
     //updates deleted data pointer to the newly allocated memory
     data = temp;
-
-    // int newSize = size + dataSize;
-
-    // // 1) allocate new bigger array
-    // int* temp = new int[newSize];
-
-    // // 2) copy old values
-    // for (int i = 0; i < size; i++) {
-    //     temp[i] = data[i];
-
-    // }
-    
-
-    // // 3) append new values
-    // for (int i = 0; i < dataSize; i++) {
-    //     temp[size + i] = appendedData[i];
-    // }
-
-    // // 4) free old array
-    // delete[] data;
-
-    // // 5) update pointer to point at new memory
-    // data = temp;
 }
 
 void freemem(Samples*& s) {
