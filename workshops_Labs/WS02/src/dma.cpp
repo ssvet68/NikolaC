@@ -49,13 +49,15 @@ namespace seneca {
     };
     void add (Samples& S, const int data[], int size){
         if (size <=0 || data == nullptr) return;
-
+        // if structure field m_data is null 
         if (S.m_data == nullptr) {
             // allocate and copy incoming values
             S.m_data = new int[size]; // allocates an array of int 
             for (int i = 0; i< size; i++) {
                 S.m_data[i] = data[i];
+                // moving the data to the dynamiclly array of data
             }
+            // setting size
             S.m_size = size;
         } else {
             // expand existing array and append
