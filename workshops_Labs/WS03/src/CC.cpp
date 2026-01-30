@@ -1,3 +1,26 @@
+/* -----------------------------------------------------------
+Workshop 03
+Module: CC
+Filename: CC.cpp
+-----------------------------------------------------------
+Author: Nikola Stojanovic
+Student number: 027 369 127
+Email: nstojanovic@myseneca.ca
+Subject: BTP200NAA
+-----------------------------------------------------------
+Revision History
+------- --------- ------------------------------------------
+Version Date      Reason
+V0.6    2025/01/29 Opened File, read instructions two private methods with the logic  were they display with 5 args, and print number
+V0.7    2025/01/29 in CC.cpp added the function desciptions logic to copy name to dynamic allocated memory, setting all the fields, valdiateing the inputs, 
+V0.9    2025/01/30 added the public methods, constructor for the CC class setting all the 5 fields, displaying them, deallocating them at the end
+V0.9    2025/01/30 Ran tests, debugged, Works, added citation on the top
+V1.0    2025/01/30 Ready for submission
+-----------------------------------------------------------
+I have done all the coding by myself and only copied the code 
+that my professor provided to complete my work for function whatever.
+-----------------------------------------------------------
+*/
 #include <iostream>
 #include "cstr.h"
 #include "CC.h"
