@@ -7,13 +7,13 @@ namespace seneca {
    void CC::aloCopy (const char* name) {
       deallocate();
       int len = strlen(name);
-      m_name = new char[len+1];
-      strcpy(m_name, name);
+      m_name = new char[len+1]; // setting a dynamic memory location for the length of name +1
+      strcpy(m_name, name); // copying the proved name to the class attribute m_name
    }
 
    void CC::deallocate(){
-      delete [] m_name;
-      m_name = nullptr;
+      delete [] m_name; // deleteing the memory  pointed to the class attrubute m_name
+      m_name = nullptr; // sets the m_name attribute to null pointer
    }
 
    void CC::set() {
