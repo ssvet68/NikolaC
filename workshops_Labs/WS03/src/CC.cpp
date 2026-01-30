@@ -52,31 +52,33 @@ namespace seneca {
    }
 
    bool CC::validate(const char* name, unsigned long long cardNo, short cvv, short expMon, short expYear) const {
+      // default is true , if all is validated
       bool ok = true;
 
-      // name: not null, and >2 chars
+      // name: not null, and > 2 chars
       if (name == nullptr || strlen(name) <= 2) {
          ok = false;
+         // not valiated, ok is false
       }
 
       if (cardNo < 4000000000000000ull || cardNo >4099999999999999ull  ) {
          ok = false;
       }
-
+      // cvv has to be a 3 digit number
       if (cvv < 100 || cvv > 999) {
          ok = false;
       }
-
+      // expiry month has to be between 1 and 12
       if (expMon < 1 || expMon > 12) {
          ok = false;
       }
+      // expiry year has to be between 24 and 32
       if (expYear < 24 || expYear > 32) {
          ok = false;
       }
 
       return ok;
-
-
+      // if all passes return the true ok
    }
 
 
