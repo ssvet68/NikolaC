@@ -19,8 +19,9 @@ Accessing private data
 struct Country {
     char mName[32];
     unsigned int mArea;
+    //some comment to test
 
-    // create function to access data or attributes to write or to read
+    // create function to access data or attributes to write or to re
     // 1.  (write data in to it)  setter, or mutator , or modifer
     /*inline*/ void set(const char* name, unsigned area); //treated as inline function  // to recieve name and area
          
