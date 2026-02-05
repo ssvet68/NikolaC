@@ -19,6 +19,15 @@ Accessing private data
 //encapsulation -to minimuze public access to the dclass members, attributes, fields
 //      - make some fields, members private
 
+
+//3rd video
+/*
+Object's State
+Empty State
+Use of Empty State
+*/
+
+
 //everything in struct has public access
 class Country { 
  // makeing it private all declarations after private:
