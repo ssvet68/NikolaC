@@ -81,14 +81,9 @@ int main (void){
     // invokeing a member function (set, get)
     ct.set("Serbia", 32546); // public access function  // public
 
-    // strcpy(ct1.mName, "Serbia");
-
-    // ct1.mArea = 34543; // setting data
     ct.display(); // public
     cout << "Country Name: " << 
     ct.getName() /*public*/ << endl << "Country Area: " 
     << ct.getArea() /*public*/ << endl; 
-
-    
     return 0;
 };
