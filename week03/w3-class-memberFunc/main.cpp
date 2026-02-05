@@ -19,7 +19,6 @@ Accessing private data
 //encapsulation -to minimuze public access to the dclass members, attributes, fields
 //      - make some fields, members private
 
-
 //3rd video
 /*
 Object's State
@@ -63,7 +62,7 @@ public:
 
     // 3. query function display 
     void display() const {
-        cout << "Country Name: " << mName << endl << "Country Area: " << mArea << endl;
+        cout << "Country Name: " << getName() << endl << "Country Area: " << getArea() << endl;
     }
 
 };
@@ -74,16 +73,25 @@ public:
          strcpy(mName, name);
          mArea = area;
     }
+//Empty State - a special state where you have data in the object which  is
+  // in your control, but not a valid data to be used 
 
 int main (void){
 
-    Country ct;
+
+    Country ct; // a memory space is allocated for its attriibutes
+    //object's state at this point - random or garbage
+
+    //ct.set("",0); // object in empty state
+
     // invokeing a member function (set, get)
     ct.set("Serbia", 32546); // public access function  // public
+    // object's state turns into a different one; contains vaild data, object in this state is us
+    //useable
+
+    
 
     ct.display(); // public
-    cout << "Country Name: " << 
-    ct.getName() /*public*/ << endl << "Country Area: " 
-    << ct.getArea() /*public*/ << endl; 
+   
     return 0;
 };
