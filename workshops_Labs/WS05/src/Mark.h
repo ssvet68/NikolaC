@@ -20,8 +20,9 @@
 const char GPA = 'G';
 const char MARK = 'M';
 const char GRADE = 'R';
+using namespace std;
 namespace seneca {
-   class Mark {
+      class Mark {
       // Temporary c-string for grade display
       char m_grade[3]{};
       // Exact mark value (double) to maintain precision; rounded when displayed
@@ -130,13 +131,29 @@ namespace seneca {
 
 
       // display and friends done by students go here 
-      
+      ostream& display (ostream& os = cout) const;
+
+      friend double operator/(double v, const Mark& m);
+      friend int operator/ (int v, const Mark& m);
 
      
    };
    
    // student helper function prototypes go here
+   ostream& display (const Mark& m, char type, ostream& os = cout);
+   ostream& operator<< (ostream& os, const Mark& m);
+   istream& operator>> (istream&, Mark& m);
+   ifstream& operator>> (ifstream& ifs, Mark& m);
+
+   double operator+(double v, const Mark& m);
+   int operator+(int v, const Mark& m);
+
+   double operator-(double v, const Mark& m);
+   int operator- (int v, const Mark& m);
 
 
+
+
+}// namespace seneca
 
 #endif // !SENECA_MARK_H
