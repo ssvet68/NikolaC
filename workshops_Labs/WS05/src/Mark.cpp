@@ -16,6 +16,10 @@
 #include <iostream>
 #include <cmath> // for round function
 #include "Mark.h"
+
+#include <iomanip>
+#include <limits>
+#include <fstream>
 using namespace std;
 namespace seneca {
    bool Mark::isValid()const {
@@ -116,7 +120,124 @@ namespace seneca {
    }
 
    // student helper function implementations go here
+   ostream& Mark::display (ostream& os) const {
+      ios oldState(nullptr);
+      oldState.copyfmt(os);
 
+      if (!isValid()) {
+         if (m_type == GRADE) {
+            os << "**";
+         }  else {
+            os << "***";
+         }
+         os.copyfmt(oldState);
+         return os;
+
+      }
+
+      if (m_type == GPA) {
+         os << setw(3) << fixed << setprecision(1) << (double)(*this);
+      } else if (m_type == MARK) {
+         os << setfill(' ') << setw(3) << right << (int)(*this);
+      } else { // GRADE
+         os << setfill (' ') << setw(3) << left << (const char*)(*this);
+      }
+
+      os.copyfmt(oldState);
+      return os;
+   }
+
+   ostream& display (const Mark& m, char type, ostream& os) {
+      Mark a = m;
+      a= MARK;
+      a.display(os);
+
+      if (type != MARK) {
+         os << ": ";
+         Mark b = m;
+         b= type;
+         b.display(os);
+      }
+      return os;
+   }
+
+   ostream& operator<< (ostream& os, const Mark& m) {
+      return m.display(os);
+   }
+
+   istream& operator>> (istream& is, Mark& m){
+       int val{};
+      while (true) {
+         if (!(is >> val)) {
+            is.clear();
+            is.ignore(numeric_limits<streamsize>::max(), '\n');
+            cout << "Invalid integer, try again.\n> ";
+            continue;
+         }
+
+         // must be no trailing characters (only newline allowed)
+         char next = is.peek();
+         if (next != '\n') {
+            is.ignore(numeric_limits<streamsize>::max(), '\n');
+            cout << "Invalid trailing characters. Please enter only an integer.\n> ";
+            continue;
+         }
+
+         is.get(); // consume '\n'
+
+         if (val < 0 || val > 100) {
+            cout << "Invalid mark. Enter a value between 0 and 100.\n> ";
+            continue;
+         }
+
+         m = val;
+         break;
+      }
+      return is;
+      
+   }
+
+   ifstream& operator>>(ifstream& ifs, Mark& m) {
+      int val{};
+      char comma{};
+      char t{};
+
+      ifs >> val;
+      if (ifs) {
+         ifs >> comma;  // should be ','
+         ifs >> t;      // 'M', 'G', 'R'
+         if (ifs) {
+            m = val;
+            if (t == 'M') m = MARK;
+            else if (t == 'G') m = GPA;
+            else if (t == 'R') m = GRADE;
+         }
+         ifs.ignore(numeric_limits<streamsize>::max(), '\n');
+      }
+      return ifs;
+   }
+
+      double operator+(double v, const Mark& m) {
+      return v + m.raw();
+   }
+   int operator+(int v, const Mark& m) {
+      return v + (int)m; // your int cast already rounds
+   }
+
+   double operator-(double v, const Mark& m) {
+      return v - m.raw();
+   }
+   int operator-(int v, const Mark& m) {
+      return v - (int)m;
+   }
+
+   // friend operators: must access m_value directly
+   double operator/(double v, const Mark& m) {
+      return v / m.m_value;
+   }
+   int operator/(int v, const Mark& m) {
+      return v / (int)(m.m_value + 0.5);
+   }
 
 
 }
