@@ -28,7 +28,7 @@ namespace seneca {
       // Exact mark value (double) to maintain precision; rounded when displayed
       double m_value;
       // Display type: 'G' (GPA), 'M' (MARK), or 'R' (GRADE)
-      char m_type;
+      char m_type; 
       // Checks if the Mark object is valid
       bool isValid() const;
    public:
